@@ -1,0 +1,23 @@
+str1=input('enter the string1:')
+str2a=input('enter the string2a:')
+str2b=input('enter the string2b:')
+str2c=input('enter the string2c:')
+str2d=input('enter the string2d:')
+str2e=input('enter the string2e:')
+str2f=input('enter the string2f:')
+str3=input('enter the string3:')
+result1=str((eval(str1+str2a+str3)))
+result2=str((eval(str1+str2b+str3)))
+result3=str((eval(str1+str2c+str3)))
+result4=str((eval(str1+str2d+str3)))
+result5=str((eval(str1+str2e+str3)))
+result6=str((eval(str1+str2f+str3)))
+print(result1)
+print(result2)
+print(result3)
+print(result4)
+print(result5)
+print(result6)
+
+      
+        

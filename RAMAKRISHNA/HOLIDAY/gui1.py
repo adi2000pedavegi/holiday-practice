@@ -1,0 +1,15 @@
+import tkinter as tk
+aditya = tk.Tk()
+aditya.title("Aditya RamaKrishna")
+button = tk.Button(aditya,text='Krupa',fg = 'black',bg='orange',width = 20,height=1)
+button.grid(row=0,columnspan=2)
+checkbutton1 = tk.Checkbutton(aditya,text='Friend',fg='black',bg='orange',width = 5,height = 1)
+checkbutton1.grid(row=1,column=0)
+checkbutton2 = tk.Checkbutton(aditya,text='Enemy',fg='black',bg='orange',width = 5,height = 1)
+checkbutton2.grid(row=2,column=0)
+e1 = tk.Entry(aditya)
+e2 = tk.Entry(aditya)
+e1.grid(row=1,column=1)
+e2.grid(row=2,column=1)
+aditya.mainloop()
+
