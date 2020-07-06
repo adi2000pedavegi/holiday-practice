@@ -1,4 +1,4 @@
-/*Using cstring libarary and cout command in cpp remaing is same for c and cpp*/
+/*Using cstring libarary and cout command in cpp remaining is same for c and cpp*/
 #include <iostream>
 #include <string>
 using namespace std;

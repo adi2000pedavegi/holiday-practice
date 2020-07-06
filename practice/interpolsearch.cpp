@@ -36,8 +36,10 @@ int main()
 	}
 	cout << "Enter the element to be searched:\n";
 	cin >> x;
+	/*Inializing the lower and upper indexes*/
 	lower = 0;
 	upper = n-1;
+	/*Same as like binary search but the middle value index is not calculated as the middle element of the array*/
 	while(flag!=1)
 	{
 		mid = lower + ((upper-lower)/(a[upper]-a[lower]))*(x-a[lower]);

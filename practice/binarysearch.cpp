@@ -22,12 +22,13 @@ int main()
 		{
 			if(a[j]>a[j+1])
 			{
-				temp = a[j];
+				temp = a[j];   /*Implementing swap command between two elements for sorting */
 				a[j] = a[j+1];
 				a[j+1] = temp;
 			}
 		}
 	}
+	/*For the binary search the elements should be sorted */
 	cout << "The sorted array\n";
 	for(i=0;i<n;i++)
 	{
@@ -36,8 +37,12 @@ int main()
 	}
 	cout << "Enter the element to be searched:\n";
 	cin >> x;
+	/*Inializing the lower and upper index*/
 	lower = 0;
 	upper = n-1;
+	/*Execution in the form of O(log n)*/
+	/*Each and every time execution run for certain number of elements*/
+	/*Through the inequality updating lower and upper indexes updates the mid value also and hence check for only those values*/ 
 	while(flag!=1)
 	{
 		mid = lower + (upper-lower)/2;

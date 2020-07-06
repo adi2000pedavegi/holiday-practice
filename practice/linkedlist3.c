@@ -5,7 +5,7 @@ struct Node
   int data; 
   struct Node* next; 
 }; 
-
+/*Adding some nodes at the start*/
 void insertstart(struct Node** headr,int newval)
 {
 	struct Node* newnode = (struct Node*)malloc(sizeof(struct Node));
@@ -27,6 +27,7 @@ int num(struct Node* head)
 	return count;
 }
 
+/*Solving through recursion relation*/
 int renum(struct Node* head)
 {
 	if(head==NULL)

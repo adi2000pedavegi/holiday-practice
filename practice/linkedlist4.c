@@ -6,6 +6,7 @@ struct Node
   struct Node* next; 
 }; 
 
+/*Inserting nodes at the start(creating a linked list)*/
 void insertstart(struct Node** headr,int newval)
 {
 	struct Node* newnode = (struct Node*)malloc(sizeof(struct Node));
@@ -20,8 +21,8 @@ void reverse(struct Node** headr)
 	struct Node* next = NULL;
 	while(current!=NULL)
 	{
-		next = current->next;
-		current->next = prev;
+		next = current->next;    /*Initial next of cuurent updated next*/
+		current->next = prev;    /*But actual next node of current node should be previous node(logic of reversing)*/
 		prev = current;
 		current = next;
 	}
