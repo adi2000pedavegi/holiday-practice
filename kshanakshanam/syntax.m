@@ -21,6 +21,9 @@ their input argumnets(these are all  are inbuilt commands)
 convenc
 vitdec
 comm.ViterbiDecoder  %Direct tool for implementing viterbi decoding
+comm.ConstellationDiagram;  %Just send only the modulated data into the
+inbuit command(also the received data can be sent but actual constellation
+points are visualized when tx data is sent as input argument
 %}
 
 %Control Systems Toolbox
