@@ -24,6 +24,13 @@ comm.ViterbiDecoder  %Direct tool for implementing viterbi decoding
 comm.ConstellationDiagram;  %Just send only the modulated data into the
 inbuit command(also the received data can be sent but actual constellation
 points are visualized when tx data is sent as input argument
+
+[index,quants] = quantiz([12 52 74 27 96],10:10:90,10:10:100)
+%Quantization according to the levels of second input argument(which are
+partitions)
+
+ uencode(-1:0.01:1,n); %Quantizies according to the binary levels of
+ n-bit(i.e levels of 0 to 2^n-1 quantization levels)
 %}
 
 %Control Systems Toolbox
