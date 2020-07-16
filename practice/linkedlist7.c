@@ -1,13 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 /*Double linked lists(which not only has next pointer link in single linked list but also a previous pointer link*/
+/*NULL pointer do not have a access for the previous link*/
 struct Node { 
     int data; 
     struct Node* next; 
     struct Node* prev; 
 }; 
 
-/*Inserting a node at the start of linked list*/ 
 void insertstart(struct Node** headr,int newval) 
 { 
 	struct Node* newnode = (struct Node*)malloc(sizeof(struct Node)); 
@@ -21,31 +21,26 @@ void insertstart(struct Node** headr,int newval)
 	*headr = newnode;  /*Updated header must be newnode for the updated linked list*/
 } 
 
-/*Inserting a node at the middle of the list*/
-void insertmiddle(struct Node* prevnode,int newval)
+void insertmiddle(struct Node* afternode,int newval)
 {
-	struct Node* newnode = (struct Node*)malloc(sizeof(struct Node)); 
+	struct Node* newnode = (struct Node*)malloc(sizeof(struct Node));
 	newnode->data = newval;
-	/*Let us take previous node as B and after node as C initially(B->next = C)*/
-	/*Inserting a node between B and C(next of newnode should be C*/
-	newnode->next = prevnode->next; 
-	/*Updated next of B should be newnode*/
-	prevnode->next = newnode;
-	/*As it is DLL we have the along with next pointer we have to define previous pointer also*/
-	newnode->prev = prevnode;
-	/*Accesing node C somehow using newnode and prevnode variables*/
-	newnode->next->prev = newnode;
+	newnode->prev = afternode->prev;
+	
+	newnode->next = afternode;
+	afternode->prev = newnode;
+	newnode->prev->next = newnode;
 }
 
 int main()
 {
 	struct Node* head = NULL;
 	
-	insertstart(&head,7);
-	insertstart(&head,45);
-	insertstart(&head,97);
-	insertstart(&head,83);
-	insertmiddle(head->next->next,13);
+	insertstart(&head,12);
+	insertstart(&head,22);
+	insertstart(&head,8);
+	insertstart(&head,13);
+	insertmiddle(head->next->next,15);
 	struct Node* n = head;
 	while(n!=NULL)
 	{
@@ -54,6 +49,3 @@ int main()
 	}
 	return 0;
 }
-
-	
-	

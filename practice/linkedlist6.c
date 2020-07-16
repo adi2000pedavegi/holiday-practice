@@ -7,7 +7,6 @@ struct Node {
     struct Node* prev; 
 }; 
 
-/*Inserting a node at the start of linked list*/ 
 void insertstart(struct Node** headr,int newval) 
 { 
 	struct Node* newnode = (struct Node*)malloc(sizeof(struct Node)); 
@@ -21,22 +20,26 @@ void insertstart(struct Node** headr,int newval)
 	*headr = newnode;  /*Updated header must be newnode for the updated linked list*/
 } 
 
-/*Inserting a node at the middle of the list*/
-void insertmiddle(struct Node* prevnode,int newval)
+void insertend(struct Node** headr,int newval)
 {
 	struct Node* newnode = (struct Node*)malloc(sizeof(struct Node)); 
+	 
+	struct Node* temp = *headr;
+	/*temp node is the last node before NULL pointer(accesing this using only header pointer*/
+	while(temp->next!=NULL)
+	{
+		temp = temp->next;
+	}
+	
+	/*Pefroming left hand side assignment for the new variables or the variables to be updated*/
 	newnode->data = newval;
-	/*Let us take previous node as B and after node as C initially(B->next = C)*/
-	/*Inserting a node between B and C(next of newnode should be C*/
-	newnode->next = prevnode->next; 
-	/*Updated next of B should be newnode*/
-	prevnode->next = newnode;
-	/*As it is DLL we have the along with next pointer we have to define previous pointer also*/
-	newnode->prev = prevnode;
-	/*Accesing node C somehow using newnode and prevnode variables*/
-	newnode->next->prev = newnode;
+	newnode->next = NULL;
+	newnode->prev = temp;
+	temp->next = newnode;
+	
 }
 
+	
 int main()
 {
 	struct Node* head = NULL;
@@ -45,7 +48,7 @@ int main()
 	insertstart(&head,45);
 	insertstart(&head,97);
 	insertstart(&head,83);
-	insertmiddle(head->next->next,13);
+	insertend(&head,13);
 	struct Node* n = head;
 	while(n!=NULL)
 	{
@@ -54,6 +57,3 @@ int main()
 	}
 	return 0;
 }
-
-	
-	
